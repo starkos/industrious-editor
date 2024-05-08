@@ -1,4 +1,4 @@
-namespace Industrious.Editor.Common.Tests;
+namespace Industrious.Editor.Tests;
 
 public class UnitTest1
 {

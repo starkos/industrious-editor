@@ -23,6 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Industrious.Editor.Common\Industrious.Editor.Common.csproj" />
+    <ProjectReference Include="..\Industrious.Editor\Industrious.Editor.csproj" />
   </ItemGroup>
 </Project>
