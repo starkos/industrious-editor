@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-
 using AppKit;
 
 using CoreGraphics;
@@ -15,8 +13,7 @@ namespace Industrious.Editor;
 ///  Eventually this should move into the shared editor assembly, but I have to work out
 ///  how to make that support multiple platforms.
 /// </remarks>
-[SuppressMessage ("Interoperability", "CA1416:Validate platform compatibility")]
-public class EditorView : NSView, IEditor
+public class EditorView : NSView
 {
 	private readonly WKWebView _webView;
 	private readonly EditorCore _editorCore;
@@ -32,6 +29,9 @@ public class EditorView : NSView, IEditor
 		var adapter = new EditorWebKitAdapter (_webView);
 		_editorCore = new EditorCore (adapter);
 	}
+
+
+	public IEditor Editor => _editorCore;
 
 
 	// Always fill the available space with the web view

@@ -2,7 +2,7 @@ using System.Reflection;
 
 namespace Industrious.Editor;
 
-public class EditorCore
+public class EditorCore : IEditor
 {
 	public EditorCore (IEditorWebView adapter)
 	{
