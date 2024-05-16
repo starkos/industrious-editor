@@ -4,6 +4,17 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>Industrious.Editor</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Industrious.Editor\Industrious.Editor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.macOS">
+      <HintPath>..\..\..\..\..\..\..\..\..\usr\local\share\dotnet\packs\Microsoft.macOS.Ref\13.3.7132\ref\net7.0\Microsoft.macOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>
