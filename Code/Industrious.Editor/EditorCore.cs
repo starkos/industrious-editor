@@ -7,7 +7,7 @@ public class EditorCore : IEditor
 	public EditorCore (IEditorWebView adapter)
 	{
 		var assembly = Assembly.GetExecutingAssembly ();
-		using var stream = assembly.GetManifestResourceStream ("Industrious.Editor.Resources.Editor.html");
+		using var stream = assembly.GetManifestResourceStream ("Industrious.Editor.Lexical.dist.index.html");
 		using var streamReader = new StreamReader (stream!);
 
 		var html = streamReader.ReadToEnd ();
