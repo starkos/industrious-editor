@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Support Files", "Support Fi
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Industrious.Editor", "Code\Industrious.Editor\Industrious.Editor.csproj", "{E4DCEF92-4272-4329-B946-6BA46249C619}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Industrious.Editor.Common", "Code\Industrious.Editor.Common\Industrious.Editor.Common.csproj", "{E4DCEF92-4272-4329-B946-6BA46249C619}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Industrious.Editor.Tests", "Code\Industrious.Editor.Tests\Industrious.Editor.Tests.csproj", "{95FE6095-9FC7-4802-987F-A59B06346BB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Industrious.Editor.Common.Tests", "Code\Industrious.Editor.Common.Tests\Industrious.Editor.Common.Tests.csproj", "{95FE6095-9FC7-4802-987F-A59B06346BB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Industrious.Editor.macOS", "Code\Industrious.Editor.macOS\Industrious.Editor.macOS.csproj", "{6C06A07E-0ABA-418F-B8A9-CB54574500C0}"
 EndProject
