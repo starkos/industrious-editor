@@ -6,27 +6,17 @@ import {HeadingNode, QuoteNode, registerRichText} from '@lexical/rich-text';
 import {mergeRegister} from '@lexical/utils';
 import {createEditor} from 'lexical';
 
-// This can be moved out to index.html?
-// Do I need the wrapper?
+const editor = createEditor({
+	namespace: 'Industrious.Editor',
+	nodes: [HeadingNode, QuoteNode],
+	onError: (error: Error) => {
+		throw error;
+	},
+	theme: {
+	},
+});
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-<div class="editor-wrapper">
-  <div id="lexical-editor" contenteditable></div>
-</div>`;
-
-const editorRef = document.getElementById('lexical-editor');
-
-const initialConfig = {
-  namespace: 'Industrious.Editor',
-  nodes: [HeadingNode, QuoteNode],
-  onError: (error: Error) => {
-    throw error;
-  },
-  theme: {
-  },
-};
-
-const editor = createEditor(initialConfig);
+const editorRef = document.getElementById('editor');
 editor.setRootElement(editorRef);
 
 mergeRegister(
@@ -35,8 +25,5 @@ mergeRegister(
   registerHistory(editor, createEmptyHistoryState(), 300),
 );
 
-// Listen for changes - will eventually want to surface this to host
-
-//editor.registerUpdateListener(({editorState}) => {
-//  stateRef!.value = JSON.stringify(editorState.toJSON(), undefined, 2);
-//});
+// Set the initial input focus
+editorRef!.focus();
