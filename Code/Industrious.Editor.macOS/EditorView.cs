@@ -1,7 +1,3 @@
-using AppKit;
-
-using CoreGraphics;
-
 using WebKit;
 
 namespace Industrious.Editor;

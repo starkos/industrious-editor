@@ -1,5 +1,3 @@
-using Foundation;
-
 using WebKit;
 
 namespace Industrious.Editor;
