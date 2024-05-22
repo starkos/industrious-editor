@@ -13,4 +13,10 @@ public class EditorCore : IEditor
 		var html = streamReader.ReadToEnd ();
 		adapter.LoadHtmlString (html);
 	}
+
+
+	public void Save (Stream stream)
+	{
+
+	}
 }
