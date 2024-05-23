@@ -27,3 +27,21 @@ mergeRegister(
 
 // Set the initial input focus
 editorRef!.focus();
+
+
+declare global {
+	interface Window {
+		webkit?: {
+			messageHandlers: {
+				[x: string]: {
+					postMessage: (data: any) => void;
+				};
+			};
+		};
+	}
+}
+
+editor.registerUpdateListener(({editorState}) => {
+	if (window.webkit != null)
+		window.webkit.messageHandlers.host.postMessage(editorState);
+});

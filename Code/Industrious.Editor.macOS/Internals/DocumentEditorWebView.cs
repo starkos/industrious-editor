@@ -1,13 +1,13 @@
 using WebKit;
 
-namespace Industrious.Editor;
+namespace Industrious.Editor.Internals;
 
-public class EditorWebKitAdapter : IEditorWebView
+internal class DocumentEditorWebView : IEditorWebView
 {
 	private readonly WKWebView _webView;
 
 
-	public EditorWebKitAdapter (WKWebView webView)
+	public DocumentEditorWebView (WKWebView webView)
 	{
 		_webView = webView;
 	}

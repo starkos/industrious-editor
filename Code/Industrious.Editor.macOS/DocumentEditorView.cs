@@ -1,28 +1,34 @@
+using Industrious.Editor.Internals;
+
 using WebKit;
 
 namespace Industrious.Editor;
 
 /// <summary>
-///  A macOS implementation of the editor view.
+///  AppKit implementation of the document editor view.
 /// </summary>
-/// <remarks>
-///  Eventually this should move into the shared editor assembly, but I have to work out
-///  how to make that support multiple platforms.
-/// </remarks>
-public class EditorView : NSView
+public class DocumentEditorView : NSView
 {
 	private readonly WKWebView _webView;
 	private readonly EditorCore _editorCore;
 
 
-	public EditorView (CGRect frame)
+	public DocumentEditorView (CGRect frame)
 		: base (frame)
 	{
+		var scriptMessageHandler = new EditorScriptMessageHandler ();
+
+		var userController = new WKUserContentController ();
+		userController.AddScriptMessageHandler (scriptMessageHandler, "host");
+
 		// will probably want to tweak this soon enough
-		var configuration = new WKWebViewConfiguration ();
+		var configuration = new WKWebViewConfiguration () {
+			UserContentController = userController
+		};
 
 		_webView = new WKWebView (CGRect.Empty, configuration);
-		var adapter = new EditorWebKitAdapter (_webView);
+
+		var adapter = new DocumentEditorWebView (_webView);
 		_editorCore = new EditorCore (adapter);
 	}
 
