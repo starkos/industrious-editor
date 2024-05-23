@@ -38,10 +38,9 @@ public class EditorView : NSView
 	}
 
 
-	// This is weird but not yet sure how else to do it. I want to add `_webKit` as a subview, so it's
+	// This is weird but not yet sure how else to do it. I want to add `_webView` as a subview, so it's
 	// not exposed to the client but is still part of the view hierarchy. I can't call `AddSubview()`
-	// from the constructor because it's virtual, but it doesn't look like Xamarin has an equivalent to
-	// AppKit's two-stage construction? This is my best guess until I know better.
+	// from the constructor because it's virtual. This is my best guess until I know better.
 	public override void ViewWillMoveToSuperview (NSView? newSuperview)
 	{
 		// ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
