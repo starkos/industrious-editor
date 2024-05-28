@@ -2,12 +2,15 @@ using WebKit;
 
 namespace Industrious.Editor.Internals;
 
-internal class DocumentEditorWebView : IEditorWebView
+/// <summary>
+///  Provide a generic interface around a system-specific web view for the core editor.
+/// </summary>
+internal class MacOsWebViewAdapter : IWebViewAdapter
 {
 	private readonly WKWebView _webView;
 
 
-	public DocumentEditorWebView (WKWebView webView)
+	public MacOsWebViewAdapter (WKWebView webView)
 	{
 		_webView = webView;
 	}

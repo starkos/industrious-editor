@@ -42,6 +42,11 @@ declare global {
 }
 
 editor.registerUpdateListener(({editorState}) => {
+	// I haven't dug into the Lexical code to verify, but this is likely a relatively expensive operation.
+	// It might be nice to only do the work if there is actually a listener registered on the C# side?
+
+	const json = editorState.toJSON();
+
 	if (window.webkit != null)
-		window.webkit.messageHandlers.host.postMessage(editorState);
+		window.webkit.messageHandlers.host.postMessage(json);
 });

@@ -7,29 +7,30 @@ namespace Industrious.Editor;
 /// <summary>
 ///  AppKit implementation of the document editor view.
 /// </summary>
-public class DocumentEditorView : NSView
+public class IndustriousEditorView : NSView
 {
 	private readonly WKWebView _webView;
 	private readonly EditorCore _editorCore;
 
 
-	public DocumentEditorView (CGRect frame)
+	public IndustriousEditorView (CGRect frame)
 		: base (frame)
 	{
-		var scriptMessageHandler = new EditorScriptMessageHandler ();
+		// Create a generic adapter to receive messages from the JavaScript editor logic
+		var webScriptAdapter = new MacOsWebScriptAdapter ();
 
+		// Create a generic web view adapter to host the editor logic
 		var userController = new WKUserContentController ();
-		userController.AddScriptMessageHandler (scriptMessageHandler, "host");
+		userController.AddScriptMessageHandler (webScriptAdapter, "host");
 
-		// will probably want to tweak this soon enough
-		var configuration = new WKWebViewConfiguration () {
+		_webView = new WKWebView (CGRect.Empty, new WKWebViewConfiguration () {
 			UserContentController = userController
-		};
+		});
 
-		_webView = new WKWebView (CGRect.Empty, configuration);
+		var webViewAdapter = new MacOsWebViewAdapter (_webView);
 
-		var adapter = new DocumentEditorWebView (_webView);
-		_editorCore = new EditorCore (adapter);
+		// Create a new editor core around the system adapters
+		_editorCore = new EditorCore (webViewAdapter, webScriptAdapter);
 	}
 
 
