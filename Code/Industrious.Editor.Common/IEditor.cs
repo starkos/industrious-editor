@@ -2,5 +2,5 @@ namespace Industrious.Editor;
 
 public interface IEditor
 {
-	void Save ();
+	public Document Document { get; }
 }
